@@ -12,7 +12,8 @@ void LedInit(uint32_t pin){
 	GPIO_LED->MODER |= BV(pin*2);
 	GPIO_LED->OTYPER |= BV(pin);
 	GPIO_LED->OSPEEDR &= ~(BV(pin*2+1)|BV(pin*2));
-	GPIO_LED->PUPDR &= ~(BV(pin*2+1)|BV(pin*2));
+	GPIO_LED->PUPDR &= ~(BV(pin*2+1));
+	GPIO_LED->PUPDR |= (BV(pin*2));
 
 }
 void LedOn(uint32_t pin)
